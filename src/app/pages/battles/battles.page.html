@@ -1,0 +1,41 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/owned"></ion-back-button>
+    </ion-buttons>
+    <ion-title> {{ battleCharacter.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="flip-card" [ngClass]="{'active': flipActive}" (click)="flipCard()">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img [src]="getImgSrc(battleCharacter.imagesrc)">
+      </div>
+      <div class="flip-card-back" *ngIf="battleCharacter.linked_card">
+        <img [src]="getImgSrc(battleCharacter.linked_card.imagesrc)">
+      </div>
+    </div>
+  </div>
+  <ion-title> Enfrentamientos </ion-title>
+  <ion-item *ngIf="winAllBattles">
+    <span class="badge rounded-pill bg-primary">¡Enhorabuena! Has vencido a todos los villanos</span>
+  </ion-item>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Easy</th>
+        <th scope="col">Hard</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let battle of battles.modes">
+        <th scope="row">{{ battle.versus }}</th>
+        <th (click)="setSuccessBattle( battle.versus, 'easy' )">{{ battle.easy ? 'X' : '' }}</th>
+        <th (click)="setSuccessBattle( battle.versus, 'hard' )">{{ battle.hard ? 'X' : '' }}</th>
+      </tr>
+    </tbody>
+  </table>
+</ion-content>

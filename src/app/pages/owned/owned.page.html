@@ -1,0 +1,20 @@
+<app-header></app-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>
+      <ion-title color="primary">Héroes</ion-title>
+    </ion-label>
+  </ion-item>
+  <ion-label *ngFor="let heroe of heroes">
+    <app-character-card [character]="heroe"></app-character-card>
+  </ion-label>
+  <ion-item>
+    <ion-label>
+      <ion-title color="danger">Villanos</ion-title>
+    </ion-label>
+  </ion-item>
+  <ion-label *ngFor="let villano of villanos">
+    <app-character-card [character]="villano"></app-character-card>
+  </ion-label>
+</ion-content>

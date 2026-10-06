@@ -1,0 +1,7 @@
+{
+  "name": "mcBattles",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

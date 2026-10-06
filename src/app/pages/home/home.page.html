@@ -1,0 +1,10 @@
+<app-header></app-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label>
+      <h1>Packs disponibles</h1>
+    </ion-label>
+  </ion-item>
+  <app-card *ngFor="let pack of packsList" [pack]="pack"></app-card>
+</ion-content>
